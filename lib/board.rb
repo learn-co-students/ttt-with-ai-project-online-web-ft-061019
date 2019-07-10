@@ -29,4 +29,10 @@ class Board
         puts "-----------"
         puts " #{cell[6]} | #{cell[7]} | #{cell[8]} "
     end
+
+    def position(index)
+        # takes in user input and returns the value of the board cell
+        cell[index.to_i - 1]
+    end
+
 end
