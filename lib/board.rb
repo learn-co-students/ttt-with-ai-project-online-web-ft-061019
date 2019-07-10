@@ -40,4 +40,9 @@ class Board
         # returns false for an in-progress game
         cell.all? {|content| content != " "}
     end
+
+    def turn_count
+        # returns the amount of turns based on cell value
+        cell.count {|token| token == "X" || token == "O"}
+    end
 end
