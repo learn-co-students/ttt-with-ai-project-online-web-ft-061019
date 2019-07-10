@@ -4,7 +4,9 @@ class Player
         @token = token
     end
 
-    def move
+    def move(obj)
         # Each player's move
+        puts "Please a move"
+        gets.chomp
     end
 end
