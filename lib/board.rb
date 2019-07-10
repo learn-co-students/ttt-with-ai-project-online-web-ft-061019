@@ -35,4 +35,9 @@ class Board
         cell[index.to_i - 1]
     end
 
+    def full?
+        # returns true for a full board
+        # returns false for an in-progress game
+        cell.all? {|content| content != " "}
+    end
 end
