@@ -51,4 +51,18 @@ class Board
         cell[index.to_i - 1] == "O" || cell[index.to_i - 1] == "X"
     end
 
+    def valid_move?(position)
+        # returns true for user input between 1-9 that is not taken
+        if (position.to_i >= 1 && position.to_i <= cell.length)
+            taken?(position.to_i) ? false : true
+        else
+            false
+        end
+    end
+
+    def update(user_input, player)
+        # updates the cells in the board with the player token according to the input
+        cell[user_input.to_i - 1] = player.token
+    end
+
 end
