@@ -45,4 +45,10 @@ class Board
         # returns the amount of turns based on cell value
         cell.count {|token| token == "X" || token == "O"}
     end
+
+    def taken?(index)
+        #  returns true if the position is "X" or "O"
+        cell[index.to_i - 1] == "O" || cell[index.to_i - 1] == "X"
+    end
+
 end
