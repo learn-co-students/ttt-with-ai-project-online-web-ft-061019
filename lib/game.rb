@@ -9,4 +9,5 @@ class Game
     [2,5,8],
     [0,4,8],
     [6,4,2],]
+    attr_accessor :board, :player_1, :player_2
 end
