@@ -32,4 +32,8 @@ class Game
         end
     end
 
+    def draw?
+        !(won?) && (self.board.full?)
+    end
+
 end
