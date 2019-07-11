@@ -1,3 +1,33 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+
+# Greet the user with a message.
+puts "Welcome to tictactoe!"
+# Prompt the user for what kind of game they want to play, 0,1, or 2 player.
+def game_type
+    while true
+        puts "What kind of game do you want to play?"
+        puts "Enter '0' to play a 0 player game."
+        puts "Enter '1' to play a 1 player game."
+        puts "Enter '2 player' to play a 2 player game."
+        user_input = gets.chomp
+        if user_input == "0"
+            type = user_input
+            break
+        elsif user_input == "1"
+            type = user_input
+            break
+        elsif user_input == "2"
+           type = user_input
+            break
+        else
+            puts "'#{user_input}' is not a valid option. Please try again..."
+        end
+    end
+    # return type
+    type
+end
+
+game_type
