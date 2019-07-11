@@ -31,3 +31,23 @@ def game_type
 end
 
 game_type
+
+# Ask the user for who should go first and be "X".
+
+def first_player
+    while true
+        puts "Who should go first?"
+        puts "Enter '1' for Player 1 or '2' for Player 2"
+        user_input = gets.chomp
+        if user_input == "1" || user_input == "2"
+            player = "X"
+            break
+        else
+            puts "'#{user_input}' is not a valid choice. Please try again..."
+        end
+    end
+    # return player
+    player
+end
+
+ first_player
