@@ -22,6 +22,8 @@ class Game
     end
 
     def won?
+        # Returns nil if there is no winner
+        # Returns combo the winning combo if there is a winner
         WIN_COMBINATIONS.detect do |combo|
         if (self.board.cells[combo[0]]) == "X" && (self.board.cells[combo[1]]) == "X" && (self.board.cells[combo[2]]) == "X"
             return combo
@@ -33,7 +35,17 @@ class Game
     end
 
     def draw?
+        # returns true for a draw
+        # returns false for a won game
+        # returns false for an in-progress game
         !(won?) && (self.board.full?)
+    end
+
+    def over?
+        # returns true for a draw
+        # returns true for a won game
+        # returns false for an in-progress game
+        won? || self.board.full? || draw?
     end
 
 end
