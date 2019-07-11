@@ -5,8 +5,7 @@ class Player
     end
 
     def move(obj)
-        # Each player's move
-        puts "Please a move"
+        puts "Enter a move 1-9"
         gets.chomp
     end
 end
