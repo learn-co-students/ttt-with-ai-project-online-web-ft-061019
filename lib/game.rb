@@ -21,4 +21,15 @@ class Game
         self.board.turn_count % 2 == 0 ? self.player_1 : self.player_2
     end
 
+    def won?
+        WIN_COMBINATIONS.detect do |combo|
+        if (self.board.cells[combo[0]]) == "X" && (self.board.cells[combo[1]]) == "X" && (self.board.cells[combo[2]]) == "X"
+            return combo
+        elsif (self.board.cells[combo[0]]) == "O" && (self.board.cells[combo[1]]) == "O" && (self.board.cells[combo[2]]) == "O"
+            return combo
+        end
+            false
+        end
+    end
+
 end
