@@ -65,4 +65,21 @@ def start_game
     end
 end
 
+# When the game is over, the CLI should prompt the user if they would like to play again and allow them to choose a new configuration for the game as described above. If the user doesn't want to play again, exit the program.
+
+start_game
+
+while true
+    puts "Would you like to play again?"
+    puts "Enter 'y' for yes to play again and 'n' for no stop playing."
+    user_input = gets.chomp
+    if user_input == "y"
+        start_game
+    elsif user_input == "n"
+        puts "Thank you for play!"
+        break
+    else
+        puts "'#{user_input}' is not a valid choice. Please try again..."
+    end
+end
 
