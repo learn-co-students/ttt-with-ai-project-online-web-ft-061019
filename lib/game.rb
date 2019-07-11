@@ -58,4 +58,18 @@ class Game
         self.winning_player
     end
 
+    def turn
+        get_input = true
+        while get_input
+            puts "Enter a move 1-9"
+            user_move = current_player.move(self.board).to_i
+            if self.board.valid_move?(user_move)
+                self.board.update(user_move, current_player)
+                self.board.display
+                get_input = false
+            else
+                puts "Move is not valid"
+            end
+        end
+    end
 end
