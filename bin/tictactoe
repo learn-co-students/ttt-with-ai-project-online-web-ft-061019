@@ -30,8 +30,6 @@ def game_type
     type
 end
 
-game_type
-
 # Ask the user for who should go first and be "X".
 
 def first_player
@@ -50,4 +48,21 @@ def first_player
     player
 end
 
- first_player
+
+
+def start_game
+    play_type = game_type
+    # Use the input to correctly initialize a Game with the appropriate player types and token values.
+    if play_type.to_i == 0
+        game = Game.new(Players::Computer.new(first_player), Players::Computer.new("O"), board = Board.new())
+        game.play
+    elsif play_type.to_i == 1
+        game = Game.new(Players::Human.new(first_player), player_2 = Players::Computer.new("O"), board = Board.new())
+        game.play
+    elsif play_type.to_i == 2
+        game = Game.new(Players::Human.new(first_player), player_2 = Players::Human.new("O"), board = Board.new())
+        game.play
+    end
+end
+
+
