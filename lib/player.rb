@@ -6,6 +6,6 @@ class Player
 
     def move(obj)
         puts "Enter a move 1-9"
-        gets.chomp
+        self.kind_of?(Players::Human) ? gets.chomp : [*1..9].sample.to_s
     end
 end
