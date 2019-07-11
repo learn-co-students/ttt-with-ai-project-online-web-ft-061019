@@ -9,7 +9,7 @@ class Game
     [2,5,8],
     [0,4,8],
     [6,4,2],]
-    attr_accessor :board, :player_1, :player_2
+    attr_accessor :board, :player_1, :player_2, :winning_player
     def initialize(player_1 = Players::Human.new("X"), player_2 = Players::Human.new("O"), board = Board.new())
         @player_1 = player_1
         @player_2 = player_2
@@ -26,8 +26,12 @@ class Game
         # Returns combo the winning combo if there is a winner
         WIN_COMBINATIONS.detect do |combo|
         if (self.board.cells[combo[0]]) == "X" && (self.board.cells[combo[1]]) == "X" && (self.board.cells[combo[2]]) == "X"
+            # Store the winner
+            self.winning_player = "X"
             return combo
         elsif (self.board.cells[combo[0]]) == "O" && (self.board.cells[combo[1]]) == "O" && (self.board.cells[combo[2]]) == "O"
+            # Store the winner
+            self.winning_player = "O"
             return combo
         end
             false
@@ -46,6 +50,12 @@ class Game
         # returns true for a won game
         # returns false for an in-progress game
         won? || self.board.full? || draw?
+    end
+
+    def winner
+        # Returns the winnner
+        won?
+        self.winning_player
     end
 
 end
