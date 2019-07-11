@@ -16,4 +16,9 @@ class Game
         @board = board
     end
 
+    def current_player
+        # Returns current player object
+        self.board.turn_count % 2 == 0 ? self.player_1 : self.player_2
+    end
+
 end
