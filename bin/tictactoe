@@ -1,3 +1,75 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+puts "Welcome to tictactoe!"
+def game_type
+    while true
+        puts "What kind of game do you want to play?"
+        puts "Enter '0' to play a 0 player game."
+        puts "Enter '1' to play a 1 player game."
+        puts "Enter '2 player' to play a 2 player game."
+        user_input = gets.chomp
+        if user_input == "0"
+            type = user_input
+            break
+        elsif user_input == "1"
+            type = user_input
+            break
+        elsif user_input == "2"
+           type = user_input
+            break
+        else
+            puts "'#{user_input}' is not a valid option. Please try again..."
+        end
+    end
+    type
+end
+
+def first_player
+    while true
+        puts "Who should go first?"
+        puts "Enter '1' for Player 1 or '2' for Player 2"
+        user_input = gets.chomp
+        if user_input == "1" || user_input == "2"
+            player = "X"
+            break
+        else
+            puts "'#{user_input}' is not a valid choice. Please try again..."
+        end
+    end
+    player
+end
+
+
+
+def start_game
+    play_type = game_type
+    if play_type.to_i == 0
+        game = Game.new(Players::Computer.new(first_player), Players::Computer.new("O"), board = Board.new())
+        game.play
+    elsif play_type.to_i == 1
+        game = Game.new(Players::Human.new(first_player), player_2 = Players::Computer.new("O"), board = Board.new())
+        game.play
+    elsif play_type.to_i == 2
+        game = Game.new(Players::Human.new(first_player), player_2 = Players::Human.new("O"), board = Board.new())
+        game.play
+    end
+end
+
+start_game
+
+while true
+    puts "Would you like to play again?"
+    puts "Enter 'y' for yes to play again and 'n' for no stop playing."
+    user_input = gets.chomp
+    if user_input == "y"
+        start_game
+    elsif user_input == "n"
+        puts "Thank you for play!"
+        break
+    else
+        puts "'#{user_input}' is not a valid choice. Please try again..."
+    end
+end
+
